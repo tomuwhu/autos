@@ -1,4 +1,4 @@
-# SvelteKit Full Stack Auto-database
+# SvelteKit Full Stack Car database
 
 ## To install:
 
