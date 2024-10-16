@@ -1,7 +1,7 @@
 {
     "user": [
       { "id": "1", "name": "Dr. Németh Tamás", "email": "tomuwhu@gmail.com", "pw": "123" },
-      { "id": "1", "name": "Borbola Patrik", "email": "borbolapatrik@gmail.com", "pw": "1234" }
+      { "id": "2", "name": "Borbola Patrik", "email": "borbolapatrik@gmail.com", "pw": "1234" }
     ],
     "car": [
       { "id": "1", 

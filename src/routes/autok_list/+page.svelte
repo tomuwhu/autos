@@ -9,14 +9,14 @@
         users = await
             fetch('http://localhost:3000/user')
                 .then(v => v.json())
-
         users.forEach(user => {
             cars.forEach(car => {
                 if (car.tulaj == user.id) {
-                    car.tulaj = user
+                    car.tulajobj = user
                 }
             })
-        })  
+        })
+        console.log(cars);
     })
 </script>
 
@@ -37,6 +37,7 @@
             <td>{
                 Array.from({length: car.stars}).fill("*").join("")
             }</td>
+            <td>{car.tulajobj?.name}</td>
         </tr>
     {/each}
 </table>
