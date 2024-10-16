@@ -17,6 +17,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@macfja/svelte-persistent-store": "^2.4.1",
 		"json-server": "^1.0.0-beta.3"
 	}
 }

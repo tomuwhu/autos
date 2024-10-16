@@ -1,7 +1,9 @@
 <script>
+    import { browser } from '$app/environment';
+    import { persist, createLocalStorage } from "@macfja/svelte-persistent-store"
     import { writable } from 'svelte/store';
     import { onMount } from 'svelte';
-    const user = writable({})
+    const user = browser ? persist(writable({}), createLocalStorage(), "user") : null
     var users=[]
     onMount(async() => {
         users = await 
