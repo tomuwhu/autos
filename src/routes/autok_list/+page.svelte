@@ -9,14 +9,7 @@
         users = await
             fetch('http://localhost:3000/user')
                 .then(v => v.json())
-        users.forEach(user => {
-            cars.forEach(car => {
-                if (car.tulaj == user.id) {
-                    car.tulajobj = user
-                }
-            })
-        })
-        console.log(cars);
+        console.log(users.filter(v => v.id == 1)[0]); 
     })
 </script>
 
@@ -27,6 +20,7 @@
         <th>Year</th>
         <th>Price</th>
         <th>Stars</th>
+        <th>Owner</th>
     </tr>
     {#each cars as car}
         <tr>
@@ -37,7 +31,9 @@
             <td>{
                 Array.from({length: car.stars}).fill("*").join("")
             }</td>
-            <td>{car.tulajobj?.name}</td>
+            {#if car.tulaj}
+            <td>{users.filter(v => v.id == car.tulaj)[0]?.name}</td>
+            {/if}
         </tr>
     {/each}
 </table>
