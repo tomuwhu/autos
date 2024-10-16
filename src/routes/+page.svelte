@@ -1,5 +1,7 @@
 <script>
+    import { writable } from 'svelte/store';
     import { onMount } from 'svelte';
+    const user = writable({})
     var users=[]
     onMount(async() => {
         users = await 
@@ -7,8 +9,37 @@
                 .then(v => v.json())
     })
 </script>
+{#if $user?.name}
+<h1>{$user.name}</h1>
+{:else}
 <h1>Bejelentkezés</h1>
-
-{#each users as user}
-    <p>{user.name}</p>
-{/each}
+<hr>
+<form>
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email">
+    <label for="pw">Jelszó</label>
+    <input type="password" name="pw" id="pw">
+    <input type=button on:click={() => {
+        user.set(users.find(u => u.email === document.getElementById('email').value && u.pw === document.getElementById('pw').value))
+        console.log($user)
+    }} value="Bejelentkezés" />
+</form>
+{/if}
+<style>
+    :global(body) {
+        text-align: center;
+        font-family: sans-serif;
+    }
+    form {
+        display: inline-flex;
+        flex-direction: column;
+        margin: auto;
+        width: 300px;
+    }
+    input {
+        margin-bottom: 10px;
+    }
+    button {
+        margin-top: 10px;
+    }
+</style>

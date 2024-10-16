@@ -9,7 +9,6 @@
         users = await
             fetch('http://localhost:3000/user')
                 .then(v => v.json())
-        console.log(users.filter(v => v.id == 1)[0]); 
     })
 </script>
 
