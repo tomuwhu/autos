@@ -1,4 +1,5 @@
 <script>
+    import { redirect } from '@sveltejs/kit';
     import { browser } from '$app/environment';
     import { persist, createLocalStorage } from "@macfja/svelte-persistent-store"
     import { writable } from 'svelte/store';
@@ -13,6 +14,9 @@
 </script>
 {#if $user?.name}
 <h1>{$user.name}</h1>
+<input type=button on:click={() => {
+    user.set('')
+}} value="Kijelentkezés" />
 {:else}
 <h1>Bejelentkezés</h1>
 <hr>
@@ -23,7 +27,7 @@
     <input type="password" name="pw" id="pw">
     <input type=button on:click={() => {
         user.set(users.find(u => u.email === document.getElementById('email').value && u.pw === document.getElementById('pw').value))
-        console.log($user)
+        redirect(302, '/autok_list')
     }} value="Bejelentkezés" />
 </form>
 {/if}

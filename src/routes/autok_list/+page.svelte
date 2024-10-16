@@ -1,4 +1,9 @@
 <script>
+    import { browser } from '$app/environment';
+    import { persist, createLocalStorage } from "@macfja/svelte-persistent-store"
+    import { writable } from 'svelte/store';
+    const user = browser ? persist(writable({}), createLocalStorage(), "user") : null
+    console.log($user)
     import { onMount } from 'svelte';
     var cars  = []
     var users = []
@@ -11,7 +16,8 @@
                 .then(v => v.json())
     })
 </script>
-
+{#if $user}
+<h6>Bejelentkezve: {$user.name} ({$user.email})</h6>
 <table>
     <tr>
         <th>Brand</th>
@@ -36,6 +42,9 @@
         </tr>
     {/each}
 </table>
+{:else}
+<h1>Nincs bejelentkezve</h1>
+{/if}
 <style>
     table {
         margin: auto;
