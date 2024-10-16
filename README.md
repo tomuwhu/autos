@@ -1,4 +1,4 @@
-# create-svelte
+# SvelteKit Full Stack Auto-database
 
 ## To install:
 
