@@ -1,10 +1,32 @@
 {
     "user": [
-      { "id": "1", "title": "a title", "views": 100 },
-      { "id": "2", "title": "another title", "views": 200 }
+      { "id": "1", "name": "Dr. Németh Tamás", "email": "tomuwhu@gmail.com", "pw": "123" },
+      { "id": "1", "name": "Borbola Patrik", "email": "borbolapatrik@gmail.com", "pw": "1234" }
     ],
     "car": [
-      { "id": "1", "text": "a comment about post 1", "postId": "1" },
-      { "id": "2", "text": "another comment about post 1", "postId": "1" }
+      { "id": "1", 
+        "brand": "Ford", 
+        "type": "Mustang", 
+        "year": "1964", 
+        "price": "20000", "stars": "4" 
+      },
+      { "id": "2", 
+        "brand": "Chevrolet", 
+        "type": "Camaro", 
+        "year": "1969", 
+        "price": "25000", "stars": "5" 
+      },
+      { "id": "3", 
+        "brand": "Nissan", 
+        "type": "Skyline", 
+        "year": "1972", 
+        "price": "30000", "stars": "3" 
+      }, 
+      { "id": "4", 
+        "brand": "Toyota", 
+        "type": "Supra", 
+        "year": "1999", 
+        "price": "40000", "stars": "2" 
+      }
     ]
   }
