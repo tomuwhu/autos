@@ -39,7 +39,7 @@
     input {
         margin-bottom: 10px;
     }
-    button {
+    input[type='button'] {
         margin-top: 10px;
     }
 </style>
