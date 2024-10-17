@@ -28,9 +28,48 @@
     </tr>
     {#each cars as car}
         <tr>
+            {#if car.tulaj == $user.id}
+            <td>
+                <input type="text" bind:value={car.brand}
+                on:input={async () => {
+                    await fetch(`http://localhost:3000/car/${car.id}`, {
+                        method: 'PATCH',
+                        body: JSON.stringify({id: car.id, brand: car.brand}),
+                        headers: { 'Content-Type': 'application/json' }
+                    })
+                }}>
+            </td>
+            {:else}
             <td>{car.brand}</td>
+            {/if}
+            {#if car.tulaj == $user.id}
+            <td>
+                <input type="text" bind:value={car.type}
+                on:input={async () => {
+                    await fetch(`http://localhost:3000/car/${car.id}`, {
+                        method: 'PATCH',
+                        body: JSON.stringify({id: car.id, type: car.type}),
+                        headers: { 'Content-Type': 'application/json' }
+                    })
+                }}>
+            </td>
+            {:else}
             <td>{car.type}</td>
+            {/if}
+            {#if car.tulaj == $user.id}
+            <td>
+                <input type="number" bind:value={car.year}
+                on:input={async () => {
+                    await fetch(`http://localhost:3000/car/${car.id}`, {
+                        method: 'PATCH',
+                        body: JSON.stringify({id: car.id, year: car.year}),
+                        headers: { 'Content-Type': 'application/json' }
+                    })
+                }}>
+            </td>
+            {:else}
             <td>{car.year}</td>
+            {/if}
             <td>{car.price}</td>
             <td>{
                 Array.from({length: car.stars}).fill("*").join("")
