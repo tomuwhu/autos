@@ -17,6 +17,12 @@
       "name": "Gugán András",
       "email": "gugandas@gmail.com",
       "pw": "12345"
+    },
+    {
+      "id": "8a83",
+      "name": "Kiss Béla",
+      "email": "kissb12@gmail.com",
+      "pw": "123"
     }
   ],
   "car": [
@@ -53,6 +59,15 @@
       "year": "1999",
       "price": "40000",
       "stars": "2"
+    },
+    {
+      "id": "e0db",
+      "brand": "Skoda",
+      "type": "Octavia",
+      "year": 2016,
+      "price": 2000,
+      "stars": 5,
+      "tulaj": "8a83"
     }
   ]
 }

@@ -9,7 +9,7 @@
     onMount(async() => {
         cars = await 
             fetch('http://localhost:3000/car')
-                .then(v => v.json())
+                .then(v => v.json())           
         users = await
             fetch('http://localhost:3000/user')
                 .then(v => v.json())
@@ -36,7 +36,7 @@
                 Array.from({length: car.stars}).fill("*").join("")
             }</td>
             {#if car.tulaj}
-            <td>{users.filter(v => v.id == car.tulaj)[0]?.name}</td>
+            <td>{users.filter(v => v.id == car.tulaj)[0]?.name || "Cica"}</td>
             {/if}
         </tr>
     {/each}

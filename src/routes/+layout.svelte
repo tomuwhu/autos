@@ -10,6 +10,7 @@
 {#if $user}
 <a href="/">Kezdőlap</a>
 <a href="/autok_list">Autók</a>
+<a href="/ujauto">Uj autó felvétele</a>
 {:else}
 <a href="/">Login</a>
 <a href="/reg">Regisztráció</a>
@@ -25,5 +26,8 @@
     }
     a:hover {
         background-color: aquamarine;
+    }
+    :global(body) {
+        text-align: center;
     }
 </style>

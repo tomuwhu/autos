@@ -1,5 +1,9 @@
 <script>
     import { redirect } from '@sveltejs/kit';
+    import { browser } from '$app/environment';
+    import { persist, createLocalStorage } from "@macfja/svelte-persistent-store"
+    import { writable } from 'svelte/store';
+    const user = browser ? persist(writable({}), createLocalStorage(), "user") : null
     var urlap = {
         name: '',
         email: '',
@@ -24,9 +28,8 @@
            body: JSON.stringify(urlap),
            headers: { 'Content-Type': 'application/json' }
          }).then(v => v.json())
-         console.log(data);
-        //user.set(users.find(u => u.email === document.getElementById('email').value && u.pw === document.getElementById('pw').value))
-        //redirect(302, '/autok_list')
+        user.set(data)
+        redirect(302, '/autok_list')
     }} value="Regisztráció" />
 </form>
 <style>
