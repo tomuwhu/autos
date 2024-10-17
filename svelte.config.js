@@ -1,5 +1,5 @@
 import adapter from '@sveltejs/adapter-static'
-
+const dev = process.env.NODE_ENV === 'development'
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
@@ -16,7 +16,7 @@ const config = {
 			strict: true
 		}),
 		paths: {
-			base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
+			base: dev ? '' : '/autos'
 		}
 	}
 };

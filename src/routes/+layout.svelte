@@ -1,4 +1,5 @@
 <script>
+    import { base } from '$app/paths'
     import { browser } from '$app/environment';
     import { persist, createLocalStorage } from "@macfja/svelte-persistent-store"
     import { writable } from 'svelte/store';
@@ -8,12 +9,12 @@
     }, 300)
 </script>
 {#if $user}
-<a href="/">Kezdőlap</a>
-<a href="/autok_list">Autók</a>
-<a href="/ujauto">Uj autó felvétele</a>
+<a href="{base}/">Kezdőlap</a>
+<a href="{base}/autok_list">Autók</a>
+<a href="{base}/ujauto">Uj autó felvétele</a>
 {:else}
-<a href="/">Login</a>
-<a href="/reg">Regisztráció</a>
+<a href="{base}/">Login</a>
+<a href="{base}/reg">Regisztráció</a>
 {/if}
 <slot />
 <style>
