@@ -2,9 +2,7 @@
     import { browser } from '$app/environment';
     import { persist, createLocalStorage } from "@macfja/svelte-persistent-store"
     import { writable } from 'svelte/store';
-    var user = browser ? persist(writable({}), createLocalStorage(), "user") : null
-    console.log($user);
-    
+    var user = browser ? persist(writable({}), createLocalStorage(), "user") : null   
     var urlap = {
         brand: '',
         type: '',

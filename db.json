@@ -68,6 +68,15 @@
       "price": 2000,
       "stars": 5,
       "tulaj": "8a83"
+    },
+    {
+      "id": "15c0",
+      "brand": "Peugeot",
+      "type": "207",
+      "year": 2009,
+      "price": 1500,
+      "stars": 4,
+      "tulaj": "8a83"
     }
   ]
 }
