@@ -23,7 +23,7 @@
         </tr>
     </table>
     <input type=button on:click={async () => {
-        var data = await fetch('http://localhost:3000/user',
+        var data = await fetch('https://my-json-server.typicode.com/tomuwhu/jsonserver/user',
          { method: 'POST', 
            body: JSON.stringify(urlap),
            headers: { 'Content-Type': 'application/json' }

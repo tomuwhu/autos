@@ -8,7 +8,7 @@
     var usermail = ''
     onMount(async() => {
         users = await 
-            fetch('http://localhost:3000/user')
+            fetch('https://my-json-server.typicode.com/tomuwhu/jsonserver/user')
                 .then(v => v.json())
         usermail = $user?.email
     })
@@ -17,7 +17,7 @@
 <h1>{$user.name}</h1>
 <input type="text" bind:value={usermail}>
 <input type="button" value="Módosít" on:click={async () => {
-    let answ = await fetch(`http://localhost:3000/user/${$user.id}`, {
+    let answ = await fetch(`https://my-json-server.typicode.com/tomuwhu/jsonserver/user/${$user.id}`, {
         method: 'PATCH',
         body: JSON.stringify({id: $user.id, email: usermail}),
         headers: { 'Content-Type': 'application/json' }

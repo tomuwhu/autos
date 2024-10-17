@@ -9,12 +9,12 @@
         year: '',
         price: '',
         stars: '',
-        tulaj: $user.id
+        tulaj: $user?.id
     }
 </script>
 <br><br>
 {#if $user}
-<form action="/ujauto" method="get">
+<form>
     <table>
         <tr>
             <th>Brand</th><td><input type="text" bind:value={urlap.brand}></td>
@@ -33,7 +33,7 @@
         </tr>
     </table>
     <button type="submit" on:click={async () => {
-        var data = await fetch('http://localhost:3000/car',
+        var data = await fetch('https://my-json-server.typicode.com/tomuwhu/jsonserver/car',
          { method: 'POST', 
            body: JSON.stringify(urlap),
            headers: { 'Content-Type': 'application/json' }

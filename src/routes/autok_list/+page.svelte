@@ -8,10 +8,10 @@
     var users = []
     onMount(async() => {
         cars = await 
-            fetch('http://localhost:3000/car')
+            fetch('https://my-json-server.typicode.com/tomuwhu/jsonserver/car')
                 .then(v => v.json())           
         users = await
-            fetch('http://localhost:3000/user')
+            fetch('https://my-json-server.typicode.com/tomuwhu/jsonserver/user')
                 .then(v => v.json())
     })
 </script>
@@ -32,7 +32,7 @@
             <td>
                 <input type="text" bind:value={car.brand}
                 on:input={async () => {
-                    await fetch(`http://localhost:3000/car/${car.id}`, {
+                    await fetch(`https://my-json-server.typicode.com/tomuwhu/jsonserver/car/${car.id}`, {
                         method: 'PATCH',
                         body: JSON.stringify({id: car.id, brand: car.brand}),
                         headers: { 'Content-Type': 'application/json' }
@@ -46,7 +46,7 @@
             <td>
                 <input type="text" bind:value={car.type}
                 on:input={async () => {
-                    await fetch(`http://localhost:3000/car/${car.id}`, {
+                    await fetch(`https://my-json-server.typicode.com/tomuwhu/jsonserver/car/${car.id}`, {
                         method: 'PATCH',
                         body: JSON.stringify({id: car.id, type: car.type}),
                         headers: { 'Content-Type': 'application/json' }
@@ -60,7 +60,7 @@
             <td>
                 <input type="number" bind:value={car.year}
                 on:input={async () => {
-                    await fetch(`http://localhost:3000/car/${car.id}`, {
+                    await fetch(`https://my-json-server.typicode.com/tomuwhu/jsonserver/car/${car.id}`, {
                         method: 'PATCH',
                         body: JSON.stringify({id: car.id, year: car.year}),
                         headers: { 'Content-Type': 'application/json' }
