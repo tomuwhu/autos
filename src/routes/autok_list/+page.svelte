@@ -3,7 +3,6 @@
     import { persist, createLocalStorage } from "@macfja/svelte-persistent-store"
     import { writable } from 'svelte/store';
     const user = browser ? persist(writable({}), createLocalStorage(), "user") : null
-    console.log($user)
     import { onMount } from 'svelte';
     var cars  = []
     var users = []
