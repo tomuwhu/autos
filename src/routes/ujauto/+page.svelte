@@ -2,7 +2,7 @@
     import { browser } from '$app/environment';
     import { persist, createLocalStorage } from "@macfja/svelte-persistent-store"
     import { writable } from 'svelte/store';
-    var user = browser ? persist(writable({}), createLocalStorage(), "user") : null   
+    var user = browser ? persist(writable({}), createLocalStorage(), "user") : null 
     var urlap = {
         brand: '',
         type: '',
@@ -14,7 +14,7 @@
 </script>
 <br><br>
 {#if $user}
-<form>
+<form action="/ujauto" method="get">
     <table>
         <tr>
             <th>Brand</th><td><input type="text" bind:value={urlap.brand}></td>
@@ -32,13 +32,13 @@
             <th>Stars</th><td><input type="number" bind:value={urlap.stars}></td>    
         </tr>
     </table>
-    <input type=button on:click={async () => {
+    <button type="submit" on:click={async () => {
         var data = await fetch('http://localhost:3000/car',
          { method: 'POST', 
            body: JSON.stringify(urlap),
            headers: { 'Content-Type': 'application/json' }
          }).then(v => v.json())
-    }} value="Felvesz">
+    }}>Felvesz</button>
 </form>
 {:else}
 <h1>Nincs bejelentkezve</h1>
