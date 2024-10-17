@@ -40,7 +40,7 @@
            body: JSON.stringify(urlap),
            headers: { 'Content-Type': 'application/json' }
          }).then(v => v.json())
-    }}>
+    }} value="Felvesz">
 </form>
 {:else}
 <h1>Nincs bejelentkezve</h1>

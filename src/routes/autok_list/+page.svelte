@@ -27,7 +27,7 @@
         <th>Owner</th>
     </tr>
     {#each cars as car}
-        <tr>
+        <tr class={car.tulaj == $user.id ? 'tulaj' : ''}>
             {#if car.tulaj == $user.id}
             <td>
                 <input type="text" bind:value={car.brand}
@@ -92,5 +92,8 @@
     td, th {
         border: 1px solid black;
         padding: 10px;
+    }
+    tr.tulaj td {
+        background-color: aquamarine;
     }
 </style>
