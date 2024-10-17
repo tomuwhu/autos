@@ -22,11 +22,11 @@
         body: JSON.stringify({id: $user.id, email: usermail}),
         headers: { 'Content-Type': 'application/json' }
     }).then(v => v.json())
-    console.log(answ);
 }}>
 <br>
 <input type=button on:click={() => {
     user.set('')
+    usermail = ''
 }} value="Kijelentkezés" />
 {:else}
 <h1>Bejelentkezés</h1>
@@ -38,7 +38,8 @@
     <input type="password" name="pw" id="pw">
     <input type=button on:click={() => {
         user.set(users.find(u => u.email === document.getElementById('email').value && u.pw === document.getElementById('pw').value))
-    }} value="Bejelentkezés" />
+        usermail = $user?.email
+}} value="Bejelentkezés" />
 </form>
 {/if}
 <style>
