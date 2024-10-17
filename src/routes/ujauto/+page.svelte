@@ -1,7 +1,12 @@
 <script>
+    import { base } from '$app/paths'
+    var jsonsrever
+    if (base == '/autos') jsonsrever = 'https://my-json-server.typicode.com/tomuwhu/jsonserver'
+    else jsonsrever = 'http://localhost:3000'
     import { browser } from '$app/environment';
     import { persist, createLocalStorage } from "@macfja/svelte-persistent-store"
     import { writable } from 'svelte/store';
+    import { goto } from '$app/navigation';
     var user = browser ? persist(writable({}), createLocalStorage(), "user") : null 
     var urlap = {
         brand: '',
@@ -33,11 +38,12 @@
         </tr>
     </table>
     <button type="submit" on:click={async () => {
-        var data = await fetch('https://my-json-server.typicode.com/tomuwhu/jsonserver/car',
+        var data = await fetch(`${jsonsrever}/car`,
          { method: 'POST', 
            body: JSON.stringify(urlap),
            headers: { 'Content-Type': 'application/json' }
          }).then(v => v.json())
+        goto(`${base}/autok_list`)
     }}>Felvesz</button>
 </form>
 {:else}

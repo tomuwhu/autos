@@ -1,4 +1,8 @@
 <script>
+    import { base } from '$app/paths'
+    var jsonsrever
+    if (base == '/autos') jsonsrever = 'https://my-json-server.typicode.com/tomuwhu/jsonserver'
+    else jsonsrever = 'http://localhost:3000'
     import { browser } from '$app/environment';
     import { persist, createLocalStorage } from "@macfja/svelte-persistent-store"
     import { writable } from 'svelte/store';
@@ -8,10 +12,10 @@
     var users = []
     onMount(async() => {
         cars = await 
-            fetch('https://my-json-server.typicode.com/tomuwhu/jsonserver/car')
+            fetch(`${jsonsrever}/car`)
                 .then(v => v.json())           
         users = await
-            fetch('https://my-json-server.typicode.com/tomuwhu/jsonserver/user')
+            fetch(`${jsonsrever}/user`)
                 .then(v => v.json())
     })
 </script>
@@ -32,7 +36,7 @@
             <td>
                 <input type="text" bind:value={car.brand}
                 on:input={async () => {
-                    await fetch(`https://my-json-server.typicode.com/tomuwhu/jsonserver/car/${car.id}`, {
+                    await fetch(`${jsonsrever}/car/${car.id}`, {
                         method: 'PATCH',
                         body: JSON.stringify({id: car.id, brand: car.brand}),
                         headers: { 'Content-Type': 'application/json' }
@@ -46,7 +50,7 @@
             <td>
                 <input type="text" bind:value={car.type}
                 on:input={async () => {
-                    await fetch(`https://my-json-server.typicode.com/tomuwhu/jsonserver/car/${car.id}`, {
+                    await fetch(`${jsonsrever}/car/${car.id}`, {
                         method: 'PATCH',
                         body: JSON.stringify({id: car.id, type: car.type}),
                         headers: { 'Content-Type': 'application/json' }
@@ -60,7 +64,7 @@
             <td>
                 <input type="number" bind:value={car.year}
                 on:input={async () => {
-                    await fetch(`https://my-json-server.typicode.com/tomuwhu/jsonserver/car/${car.id}`, {
+                    await fetch(`${jsonsrever}/car/${car.id}`, {
                         method: 'PATCH',
                         body: JSON.stringify({id: car.id, year: car.year}),
                         headers: { 'Content-Type': 'application/json' }

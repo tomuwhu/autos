@@ -1,5 +1,8 @@
 <script>
-    import { redirect } from '@sveltejs/kit';
+    import { base } from '$app/paths'
+    var jsonsrever
+    if (base == '/autos') jsonsrever = 'https://my-json-server.typicode.com/tomuwhu/jsonserver'
+    else jsonsrever = 'http://localhost:3000'
     import { browser } from '$app/environment';
     import { persist, createLocalStorage } from "@macfja/svelte-persistent-store"
     import { writable } from 'svelte/store';
@@ -23,13 +26,12 @@
         </tr>
     </table>
     <input type=button on:click={async () => {
-        var data = await fetch('https://my-json-server.typicode.com/tomuwhu/jsonserver/user',
+        var data = await fetch(`${jsonsrever}/user`,
          { method: 'POST', 
            body: JSON.stringify(urlap),
            headers: { 'Content-Type': 'application/json' }
          }).then(v => v.json())
         user.set(data)
-        redirect(302, '/autok_list')
     }} value="Regisztráció" />
 </form>
 <style>

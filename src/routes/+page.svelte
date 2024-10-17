@@ -1,4 +1,8 @@
 <script>
+    import { base } from '$app/paths'
+    var jsonsrever
+    if (base == '/autos') jsonsrever = 'https://my-json-server.typicode.com/tomuwhu/jsonserver'
+    else jsonsrever = 'http://localhost:3000'
     import { browser } from '$app/environment';
     import { persist, createLocalStorage } from "@macfja/svelte-persistent-store"
     import { writable } from 'svelte/store';
@@ -8,7 +12,7 @@
     var usermail = ''
     onMount(async() => {
         users = await 
-            fetch('https://my-json-server.typicode.com/tomuwhu/jsonserver/user')
+            fetch(`${jsonsrever}/user`)
                 .then(v => v.json())
         usermail = $user?.email
     })
@@ -17,7 +21,7 @@
 <h1>{$user.name}</h1>
 <input type="text" bind:value={usermail}>
 <input type="button" value="Módosít" on:click={async () => {
-    let answ = await fetch(`https://my-json-server.typicode.com/tomuwhu/jsonserver/user/${$user.id}`, {
+    let answ = await fetch(`${jsonsrever}/user/${$user.id}`, {
         method: 'PATCH',
         body: JSON.stringify({id: $user.id, email: usermail}),
         headers: { 'Content-Type': 'application/json' }
